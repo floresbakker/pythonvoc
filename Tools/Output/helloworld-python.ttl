@@ -1,0 +1,1577 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix decl: <https://www.python.org/model/decl/> .
+@prefix ex: <https://example.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix python: <https://www.python.org/model/def/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix respec: <https://respec.org/model/> .
+@prefix rule: <https://www.python.org/model/rule/> .
+@prefix section: <https://www.python.org/section/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix shp: <https://www.python.org/model/shp/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix standard: <https://www.python.org/model/> .
+@prefix status: <http://purl.org/adms/status/> .
+@prefix target: <https://www.python.org/model/target/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:module1 a python:Module ;
+    rdf:_1 ex:call1 ;
+    python:fragment "print Hello world!"^^xsd:string .
+
+python:AbstractSyntaxTree a owl:Class ;
+    dct:conformsTo <http://example.org/section/AbstractSyntaxTree> ;
+    rdfs:isDefinedBy python: ;
+    skos:definition "Represents a tree that models a Python program. It consists of a hierarchy of connected nodes that model the structure and syntax of a Python program."@en ;
+    skos:prefLabel "Abstract Syntax Tree"@en .
+
+python:Add a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the addition operator."@en ;
+    skos:prefLabel "Addition"@en .
+
+python:Alias a owl:Class ;
+    dct:conformsTo section:Alias ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an alias in an import statement in Python."@en ;
+    skos:prefLabel "Alias"@en .
+
+python:And a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the logical AND operation."@en ;
+    skos:prefLabel "AND"@en .
+
+python:Arg a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents arg in Python."@en ;
+    skos:prefLabel "Arg"@en .
+
+python:Arguments a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the arguments in functions and expressions."@en ;
+    skos:prefLabel "Arguments"@en .
+
+python:ArgumentsKeyword a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents keyword arguments in function calls."@en ;
+    skos:prefLabel "Keyword Argument"@en .
+
+python:BitAnd a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the bitwise AND operator."@en ;
+    skos:prefLabel "Bitwise AND"@en .
+
+python:BitOr a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the bitwise OR operator."@en ;
+    skos:prefLabel "Bitwise OR"@en .
+
+python:BitXor a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the bitwise XOR operator."@en ;
+    skos:prefLabel "Bitwise XOR"@en .
+
+python:Body a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the body of a node in the Python abstract syntax tree."@en ;
+    skos:prefLabel "Body"@en .
+
+python:BoolOp a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a boolean operation in Python."@en ;
+    skos:prefLabel "Boolean Operation"@en .
+
+python:CompareOp a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents comparison operators in Python."@en ;
+    skos:prefLabel "Comparison Operator"@en .
+
+python:Comprehension a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents comprehensions in Python."@en ;
+    skos:prefLabel "Comprehension"@en .
+
+python:Del a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a context where an expression is deleted."@en ;
+    skos:prefLabel "Delete Context"@en .
+
+python:Div a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the division operator."@en ;
+    skos:prefLabel "Division"@en .
+
+python:Eq a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the equality operator."@en ;
+    skos:prefLabel "Equality"@en .
+
+python:Except a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an except clause."@en ;
+    skos:prefLabel "Except Clause"@en .
+
+python:ExceptHandler a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an exception handler in Python."@en ;
+    skos:prefLabel "Exception Handler"@en .
+
+python:Expr a owl:Class ;
+    dct:conformsTo <http://example.org/section/Expr> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an expression in Python."@en ;
+    skos:prefLabel "Expression"@en .
+
+python:ExprContext a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the context for an expression, indicating how it can be used."@en ;
+    skos:prefLabel "Expression Context"@en .
+
+python:Expression a owl:Class ;
+    dct:conformsTo <http://example.org/section/Expression> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an expression in Python."@en ;
+    skos:prefLabel "Expression"@en .
+
+python:ExpressionAttribute a owl:Class ;
+    dct:conformsTo <http://example.org/section/Attribute> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an attribute reference in Python."@en ;
+    skos:prefLabel "Attribute"@en .
+
+python:ExpressionAwait a owl:Class ;
+    dct:conformsTo <http://example.org/section/Await> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an await expression in Python."@en ;
+    skos:prefLabel "Await Expression"@en .
+
+python:ExpressionBinOp a owl:Class ;
+    dct:conformsTo <http://example.org/section/BinOp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a binary operation in Python."@en ;
+    skos:prefLabel "Binary Operation"@en .
+
+python:ExpressionBoolOp a owl:Class ;
+    dct:conformsTo <http://example.org/section/BoolOp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a boolean operation in Python."@en ;
+    skos:prefLabel "Boolean Operation"@en .
+
+python:ExpressionCompare a owl:Class ;
+    dct:conformsTo <http://example.org/section/Compare> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a comparison operation in Python."@en ;
+    skos:prefLabel "Comparison"@en .
+
+python:ExpressionDict a owl:Class ;
+    dct:conformsTo <http://example.org/section/Dict> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a dictionary in Python."@en ;
+    skos:prefLabel "Dictionary"@en .
+
+python:ExpressionDictComp a owl:Class ;
+    dct:conformsTo <http://example.org/section/DictComp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a dictionary comprehension in Python."@en ;
+    skos:prefLabel "Dictionary Comprehension"@en .
+
+python:ExpressionFormattedValue a owl:Class ;
+    dct:conformsTo <http://example.org/section/FormattedValue> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a formatted value in Python."@en ;
+    skos:prefLabel "Formatted Value"@en .
+
+python:ExpressionGeneratorExp a owl:Class ;
+    dct:conformsTo <http://example.org/section/GeneratorExp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a generator expression in Python."@en ;
+    skos:prefLabel "Generator Expression"@en .
+
+python:ExpressionIfExp a owl:Class ;
+    dct:conformsTo <http://example.org/section/IfExp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an if expression in Python."@en ;
+    skos:prefLabel "If Expression"@en .
+
+python:ExpressionJoinedStr a owl:Class ;
+    dct:conformsTo <http://example.org/section/JoinedStr> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a joined string in Python."@en ;
+    skos:prefLabel "Joined String"@en .
+
+python:ExpressionLambda a owl:Class ;
+    dct:conformsTo <http://example.org/section/Lambda> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a lambda expression in Python."@en ;
+    skos:prefLabel "Lambda Expression"@en .
+
+python:ExpressionList a owl:Class ;
+    dct:conformsTo <http://example.org/section/List> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a list in Python."@en ;
+    skos:prefLabel "List"@en .
+
+python:ExpressionListComp a owl:Class ;
+    dct:conformsTo <http://example.org/section/ListComp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a list comprehension in Python."@en ;
+    skos:prefLabel "List Comprehension"@en .
+
+python:ExpressionNamedExpr a owl:Class ;
+    dct:conformsTo <http://example.org/section/NamedExpr> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a named expression in Python."@en ;
+    skos:prefLabel "Named Expression"@en .
+
+python:ExpressionSet a owl:Class ;
+    dct:conformsTo <http://example.org/section/Set> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a set in Python."@en ;
+    skos:prefLabel "Set"@en .
+
+python:ExpressionSetComp a owl:Class ;
+    dct:conformsTo <http://example.org/section/SetComp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a set comprehension in Python."@en ;
+    skos:prefLabel "Set Comprehension"@en .
+
+python:ExpressionSlice a owl:Class ;
+    dct:conformsTo <http://example.org/section/Slice> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a slice operation in Python."@en ;
+    skos:prefLabel "Slice"@en .
+
+python:ExpressionStarred a owl:Class ;
+    dct:conformsTo <http://example.org/section/Starred> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a starred expression in Python."@en ;
+    skos:prefLabel "Starred Expression"@en .
+
+python:ExpressionSubscript a owl:Class ;
+    dct:conformsTo <http://example.org/section/Subscript> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a subscript operation in Python."@en ;
+    skos:prefLabel "Subscript"@en .
+
+python:ExpressionTuple a owl:Class ;
+    dct:conformsTo <http://example.org/section/Tuple> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a tuple in Python."@en ;
+    skos:prefLabel "Tuple"@en .
+
+python:ExpressionUnaryOp a owl:Class ;
+    dct:conformsTo <http://example.org/section/UnaryOp> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a unary operation in Python."@en ;
+    skos:prefLabel "Unary Operation"@en .
+
+python:ExpressionYield a owl:Class ;
+    dct:conformsTo <http://example.org/section/Yield> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a yield expression in Python."@en ;
+    skos:prefLabel "Yield Expression"@en .
+
+python:ExpressionYieldFrom a owl:Class ;
+    dct:conformsTo <http://example.org/section/YieldFrom> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a yield from expression in Python."@en ;
+    skos:prefLabel "Yield From Expression"@en .
+
+python:FloorDiv a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the floor division operator."@en ;
+    skos:prefLabel "Floor Division"@en .
+
+python:FunctionType a owl:Class ;
+    dct:conformsTo <http://example.org/section/FunctionType> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a function type in Python."@en ;
+    skos:prefLabel "Function Type"@en .
+
+python:Gt a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the greater than operator."@en ;
+    skos:prefLabel "Greater Than"@en .
+
+python:GtE a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the greater than or equal operator."@en ;
+    skos:prefLabel "Greater Than or Equal"@en .
+
+python:Identifier a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:TerminalNode ;
+    skos:definition "Represents an identifier in Python."@en ;
+    skos:prefLabel "Identifier"@en .
+
+python:In a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the membership operator."@en ;
+    skos:prefLabel "In"@en .
+
+python:Interactive a owl:Class ;
+    dct:conformsTo <http://example.org/section/Interactive> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an interactive session in Python."@en ;
+    skos:prefLabel "Interactive"@en .
+
+python:Invert a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the bitwise NOT operation."@en ;
+    skos:prefLabel "Invert"@en .
+
+python:LShift a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the left shift operator."@en ;
+    skos:prefLabel "Left Shift"@en .
+
+python:Load a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a context where an expression is loaded."@en ;
+    skos:prefLabel "Load Context"@en .
+
+python:Lt a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the less than operator."@en ;
+    skos:prefLabel "Less Than"@en .
+
+python:LtE a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the less than or equal operator."@en ;
+    skos:prefLabel "Less Than or Equal"@en .
+
+python:MatchAs a owl:Class ;
+    dct:conformsTo section:MatchAs ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an 'as' pattern in match statements."@en ;
+    skos:prefLabel "Match As"@en .
+
+python:MatchCase a owl:Class ;
+    dct:conformsTo section:MatchCase ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a case in a match statement in Python."@en ;
+    skos:prefLabel "Match Case"@en .
+
+python:MatchClass a owl:Class ;
+    dct:conformsTo section:MatchClass ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a class match pattern."@en ;
+    skos:prefLabel "Match Class"@en .
+
+python:MatchMapping a owl:Class ;
+    dct:conformsTo section:MatchMapping ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a mapping match pattern."@en ;
+    skos:prefLabel "Match Mapping"@en .
+
+python:MatchOr a owl:Class ;
+    dct:conformsTo section:MatchOr ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an 'or' pattern in match statements."@en ;
+    skos:prefLabel "Match Or"@en .
+
+python:MatchSequence a owl:Class ;
+    dct:conformsTo section:MatchSequence ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a sequence match pattern."@en ;
+    skos:prefLabel "Match Sequence"@en .
+
+python:MatchSingleton a owl:Class ;
+    dct:conformsTo section:MatchSingleton ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a singleton match pattern."@en ;
+    skos:prefLabel "Match Singleton"@en .
+
+python:MatchStar a owl:Class ;
+    dct:conformsTo section:MatchStar ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a star pattern in match statements."@en ;
+    skos:prefLabel "Match Star"@en .
+
+python:MatchValue a owl:Class ;
+    dct:conformsTo section:MatchValue ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a match value pattern."@en ;
+    skos:prefLabel "Match Value"@en .
+
+python:Mod a owl:Class ;
+    dct:conformsTo <http://example.org/section/Mod> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a mod in Python."@en,
+        "Represents the modulo operator."@en ;
+    skos:prefLabel "Modu"@en,
+        "Modulo"@en .
+
+python:Mult a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the multiplication operator."@en ;
+    skos:prefLabel "Multiplication"@en .
+
+python:Not a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the logical NOT operation."@en ;
+    skos:prefLabel "Not"@en .
+
+python:NotEq a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the not equal operator."@en ;
+    skos:prefLabel "Not Equal"@en .
+
+python:NotIn a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the non-membership operator."@en ;
+    skos:prefLabel "Not In"@en .
+
+python:Operator a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents arithmetic and bitwise operators in Python."@en ;
+    skos:prefLabel "Operator"@en .
+
+python:Or a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the logical OR operation."@en ;
+    skos:prefLabel "OR"@en .
+
+python:Pattern a owl:Class ;
+    dct:conformsTo section:Pattern ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a pattern used in a match statement in Python."@en ;
+    skos:prefLabel "Pattern"@en .
+
+python:Pow a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the power operator."@en ;
+    skos:prefLabel "Power"@en .
+
+python:RShift a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the right shift operator."@en ;
+    skos:prefLabel "Right Shift"@en .
+
+python:StatementAnnAssign a owl:Class ;
+    dct:conformsTo <http://example.org/section/AnnAssign> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an annotated assignment in Python."@en ;
+    skos:prefLabel "Annotated Assignment"@en .
+
+python:StatementAssert a owl:Class ;
+    dct:conformsTo <http://example.org/section/Assert> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an assert statement in Python."@en ;
+    skos:prefLabel "Assert Statement"@en .
+
+python:StatementAssign a owl:Class ;
+    dct:conformsTo <http://example.org/section/Assign> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an assignment statement in Python."@en ;
+    skos:prefLabel "Assignment Statement"@en .
+
+python:StatementAsyncFor a owl:Class ;
+    dct:conformsTo <http://example.org/section/AsyncFor> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an asynchronous for loop in Python."@en ;
+    skos:prefLabel "Async For Loop"@en .
+
+python:StatementAsyncFunctionDef a owl:Class ;
+    dct:conformsTo <http://example.org/section/AsyncFunctionDef> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an asynchronous function definition in Python."@en ;
+    skos:prefLabel "Async Function Definition"@en .
+
+python:StatementAsyncWith a owl:Class ;
+    dct:conformsTo <http://example.org/section/AsyncWith> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an asynchronous with statement in Python."@en ;
+    skos:prefLabel "Async With Statement"@en .
+
+python:StatementAugAssign a owl:Class ;
+    dct:conformsTo <http://example.org/section/AugAssign> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an augmented assignment statement in Python."@en ;
+    skos:prefLabel "Augmented Assignment"@en .
+
+python:StatementBreak a owl:Class ;
+    dct:conformsTo <http://example.org/section/Break> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a break statement in Python."@en ;
+    skos:prefLabel "Break Statement"@en .
+
+python:StatementClassDef a owl:Class ;
+    dct:conformsTo <http://example.org/section/ClassDef> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a class definition in Python."@en ;
+    skos:prefLabel "Class Definition"@en .
+
+python:StatementContinue a owl:Class ;
+    dct:conformsTo <http://example.org/section/Continue> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a continue statement in Python."@en ;
+    skos:prefLabel "Continue Statement"@en .
+
+python:StatementDelete a owl:Class ;
+    dct:conformsTo <http://example.org/section/Delete> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a delete statement in Python."@en ;
+    skos:prefLabel "Delete Statement"@en .
+
+python:StatementExec a owl:Class ;
+    dct:conformsTo <http://example.org/section/Exec> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an exec statement in Python."@en ;
+    skos:prefLabel "Exec Statement"@en .
+
+python:StatementExpression a owl:Class ;
+    dct:conformsTo <http://example.org/section/ExpressionStatement> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an expression statement in Python."@en ;
+    skos:prefLabel "Expression Statement"@en .
+
+python:StatementFor a owl:Class ;
+    dct:conformsTo <http://example.org/section/For> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a for loop in Python."@en ;
+    skos:prefLabel "For Loop"@en .
+
+python:StatementFunctionDef a owl:Class ;
+    dct:conformsTo <http://example.org/section/FunctionDef> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a function definition in Python."@en ;
+    skos:prefLabel "Function Definition"@en .
+
+python:StatementGlobal a owl:Class ;
+    dct:conformsTo <http://example.org/section/Global> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a global declaration in Python."@en ;
+    skos:prefLabel "Global Declaration"@en .
+
+python:StatementIf a owl:Class ;
+    dct:conformsTo <http://example.org/section/If> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an if statement in Python."@en ;
+    skos:prefLabel "If Statement"@en .
+
+python:StatementImport a owl:Class ;
+    dct:conformsTo <http://example.org/section/Import> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an import statement in Python."@en ;
+    skos:prefLabel "Import Statement"@en .
+
+python:StatementImportFrom a owl:Class ;
+    dct:conformsTo <http://example.org/section/From> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a from import statement in Python."@en ;
+    skos:prefLabel "From Import Statement"@en .
+
+python:StatementMatch a owl:Class ;
+    dct:conformsTo <http://example.org/section/Match> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a match statement in Python."@en ;
+    skos:prefLabel "Match Statement"@en .
+
+python:StatementNonlocal a owl:Class ;
+    dct:conformsTo <http://example.org/section/Nonlocal> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a nonlocal declaration in Python."@en ;
+    skos:prefLabel "Nonlocal Declaration"@en .
+
+python:StatementPass a owl:Class ;
+    dct:conformsTo <http://example.org/section/Pass> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a pass statement in Python."@en ;
+    skos:prefLabel "Pass Statement"@en .
+
+python:StatementRaise a owl:Class ;
+    dct:conformsTo <http://example.org/section/Raise> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a raise statement in Python."@en ;
+    skos:prefLabel "Raise Statement"@en .
+
+python:StatementReturn a owl:Class ;
+    dct:conformsTo <http://example.org/section/Return> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a return statement in Python."@en ;
+    skos:prefLabel "Return Statement"@en .
+
+python:StatementTry a owl:Class ;
+    dct:conformsTo <http://example.org/section/Try> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a try statement in Python."@en ;
+    skos:prefLabel "Try Statement"@en .
+
+python:StatementTypeAlias a owl:Class ;
+    dct:conformsTo <http://example.org/section/TypeAlias> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a type alias in Python."@en ;
+    skos:prefLabel "Type Alias"@en .
+
+python:StatementWhile a owl:Class ;
+    dct:conformsTo <http://example.org/section/While> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a while loop in Python."@en ;
+    skos:prefLabel "While Loop"@en .
+
+python:StatementWith a owl:Class ;
+    dct:conformsTo <http://example.org/section/With> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a with statement in Python."@en ;
+    skos:prefLabel "With Statement"@en .
+
+python:Stmt a owl:Class ;
+    dct:conformsTo <http://example.org/section/Stmt> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a statement in Python."@en ;
+    skos:prefLabel "Statement"@en .
+
+python:Store a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a context where an expression is stored."@en ;
+    skos:prefLabel "Store Context"@en .
+
+python:Sub a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the subtraction operator."@en ;
+    skos:prefLabel "Subtraction"@en .
+
+python:SyntaxKeywordAnd a owl:Class ;
+    dct:conformsTo section:And ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the and keyword in Python."@en ;
+    skos:prefLabel "and keyword"@en ;
+    python:syntax "and" .
+
+python:SyntaxKeywordAs a owl:Class ;
+    dct:conformsTo section:As ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the as keyword in Python."@en ;
+    skos:prefLabel "as keyword"@en ;
+    python:syntax "as" .
+
+python:SyntaxKeywordAssert a owl:Class ;
+    dct:conformsTo section:Assert ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the assert keyword in Python."@en ;
+    skos:prefLabel "assert keyword"@en ;
+    python:syntax "assert" .
+
+python:SyntaxKeywordAsync a owl:Class ;
+    dct:conformsTo section:Async ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the async keyword in Python."@en ;
+    skos:prefLabel "async keyword"@en ;
+    python:syntax "async" .
+
+python:SyntaxKeywordAwait a owl:Class ;
+    dct:conformsTo section:Await ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the await keyword in Python."@en ;
+    skos:prefLabel "await keyword"@en ;
+    python:syntax "await" .
+
+python:SyntaxKeywordBreak a owl:Class ;
+    dct:conformsTo section:Break ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the break keyword in Python."@en ;
+    skos:prefLabel "break keyword"@en ;
+    python:syntax "break" .
+
+python:SyntaxKeywordClass a owl:Class ;
+    dct:conformsTo section:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the class keyword in Python."@en ;
+    skos:prefLabel "class keyword"@en ;
+    python:syntax "class" .
+
+python:SyntaxKeywordContinue a owl:Class ;
+    dct:conformsTo section:Continue ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the continue keyword in Python."@en ;
+    skos:prefLabel "continue keyword"@en ;
+    python:syntax "continue" .
+
+python:SyntaxKeywordDef a owl:Class ;
+    dct:conformsTo section:Def ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the def keyword in Python."@en ;
+    skos:prefLabel "def keyword"@en ;
+    python:syntax "def" .
+
+python:SyntaxKeywordDel a owl:Class ;
+    dct:conformsTo section:Del ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the del keyword in Python."@en ;
+    skos:prefLabel "del keyword"@en ;
+    python:syntax "del" .
+
+python:SyntaxKeywordElif a owl:Class ;
+    dct:conformsTo section:Elif ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the elif keyword in Python."@en ;
+    skos:prefLabel "elif keyword"@en ;
+    python:syntax "elif" .
+
+python:SyntaxKeywordElse a owl:Class ;
+    dct:conformsTo section:Else ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the else keyword in Python."@en ;
+    skos:prefLabel "else keyword"@en ;
+    python:syntax "else" .
+
+python:SyntaxKeywordExcept a owl:Class ;
+    dct:conformsTo section:Except ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the except keyword in Python."@en ;
+    skos:prefLabel "except keyword"@en ;
+    python:syntax "except" .
+
+python:SyntaxKeywordFalse a owl:Class ;
+    dct:conformsTo section:False ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the False keyword in Python."@en ;
+    skos:prefLabel "False keyword"@en ;
+    python:syntax "False" .
+
+python:SyntaxKeywordFinally a owl:Class ;
+    dct:conformsTo section:Finally ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the finally keyword in Python."@en ;
+    skos:prefLabel "finally keyword"@en ;
+    python:syntax "finally" .
+
+python:SyntaxKeywordFor a owl:Class ;
+    dct:conformsTo section:For ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the for keyword in Python."@en ;
+    skos:prefLabel "for keyword"@en ;
+    python:syntax "for" .
+
+python:SyntaxKeywordFrom a owl:Class ;
+    dct:conformsTo section:From ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the from keyword in Python."@en ;
+    skos:prefLabel "from keyword"@en ;
+    python:syntax "from" .
+
+python:SyntaxKeywordGlobal a owl:Class ;
+    dct:conformsTo section:Global ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the global keyword in Python."@en ;
+    skos:prefLabel "global keyword"@en ;
+    python:syntax "global" .
+
+python:SyntaxKeywordIf a owl:Class ;
+    dct:conformsTo section:If ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the if keyword in Python."@en ;
+    skos:prefLabel "if keyword"@en ;
+    python:syntax "if" .
+
+python:SyntaxKeywordImport a owl:Class ;
+    dct:conformsTo section:Import ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the import keyword in Python."@en ;
+    skos:prefLabel "import keyword"@en ;
+    python:syntax "import" .
+
+python:SyntaxKeywordIn a owl:Class ;
+    dct:conformsTo section:In ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the in keyword in Python."@en ;
+    skos:prefLabel "in keyword"@en ;
+    python:syntax "in" .
+
+python:SyntaxKeywordIs a owl:Class ;
+    dct:conformsTo section:Is ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the is keyword in Python."@en ;
+    skos:prefLabel "is keyword"@en ;
+    python:syntax "is" .
+
+python:SyntaxKeywordLambda a owl:Class ;
+    dct:conformsTo section:Lambda ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the lambda keyword in Python."@en ;
+    skos:prefLabel "lambda keyword"@en ;
+    python:syntax "lambda" .
+
+python:SyntaxKeywordNone a owl:Class ;
+    dct:conformsTo section:None ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the None keyword in Python."@en ;
+    skos:prefLabel "None keyword"@en ;
+    python:syntax "None" .
+
+python:SyntaxKeywordNonlocal a owl:Class ;
+    dct:conformsTo section:Nonlocal ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the nonlocal keyword in Python."@en ;
+    skos:prefLabel "nonlocal keyword"@en ;
+    python:syntax "nonlocal" .
+
+python:SyntaxKeywordNot a owl:Class ;
+    dct:conformsTo section:Not ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the not keyword in Python."@en ;
+    skos:prefLabel "not keyword"@en ;
+    python:syntax "not" .
+
+python:SyntaxKeywordOr a owl:Class ;
+    dct:conformsTo section:Or ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the or keyword in Python."@en ;
+    skos:prefLabel "or keyword"@en ;
+    python:syntax "or" .
+
+python:SyntaxKeywordPass a owl:Class ;
+    dct:conformsTo section:Pass ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the pass keyword in Python."@en ;
+    skos:prefLabel "pass keyword"@en ;
+    python:syntax "pass" .
+
+python:SyntaxKeywordRaise a owl:Class ;
+    dct:conformsTo section:Raise ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the raise keyword in Python."@en ;
+    skos:prefLabel "raise keyword"@en ;
+    python:syntax "raise" .
+
+python:SyntaxKeywordReturn a owl:Class ;
+    dct:conformsTo section:Return ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the return keyword in Python."@en ;
+    skos:prefLabel "return keyword"@en ;
+    python:syntax "return" .
+
+python:SyntaxKeywordTrue a owl:Class ;
+    dct:conformsTo section:True ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the True keyword in Python."@en ;
+    skos:prefLabel "True keyword"@en ;
+    python:syntax "True" .
+
+python:SyntaxKeywordTry a owl:Class ;
+    dct:conformsTo section:Try ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the try keyword in Python."@en ;
+    skos:prefLabel "try keyword"@en ;
+    python:syntax "try" .
+
+python:SyntaxKeywordWhile a owl:Class ;
+    dct:conformsTo section:While ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the while keyword in Python."@en ;
+    skos:prefLabel "while keyword"@en ;
+    python:syntax "while" .
+
+python:SyntaxKeywordWith a owl:Class ;
+    dct:conformsTo section:With ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the with keyword in Python."@en ;
+    skos:prefLabel "with keyword"@en ;
+    python:syntax "with" .
+
+python:SyntaxKeywordYield a owl:Class ;
+    dct:conformsTo section:Yield ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the yield keyword in Python."@en ;
+    skos:prefLabel "yield keyword"@en ;
+    python:syntax "yield" .
+
+python:Test a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the test condition in statements and expressions."@en ;
+    skos:prefLabel "Test"@en .
+
+python:TypeIgnore a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a type ignore statement."@en ;
+    skos:prefLabel "Type Ignore"@en .
+
+python:TypeParam a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents type parameters in Python."@en ;
+    skos:prefLabel "Type Parameter"@en .
+
+python:UAdd a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the unary plus operator."@en ;
+    skos:prefLabel "Unary Plus"@en .
+
+python:USub a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents the unary minus operator."@en ;
+    skos:prefLabel "Unary Minus"@en .
+
+python:UnaryOp a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents unary operators in Python."@en ;
+    skos:prefLabel "Unary Operator"@en .
+
+python:WithItem a owl:Class ;
+    dct:conformsTo section:WithItem ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents an item in a 'with' statement in Python."@en ;
+    skos:prefLabel "With Item"@en .
+
+standard:python a dct:Standard ;
+    dct:created "2024-04-07"^^xsd:date ;
+    dct:source "https://www.python.org/"^^xsd:anyURI ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel "Python"@en .
+
+shp:ExpressionConstant a sh:NodeShape ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel "ExpressionConstant shape"@en ;
+    sh:rule rule:ExpressionConstant ;
+    sh:target target:ExpressionConstant .
+
+shp:NonTerminalNode a sh:NodeShape ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel "Non-terminal node shape"@en ;
+    sh:rule rule:NonTerminalNode ;
+    sh:target target:NonTerminalNode .
+
+shp:SyntaxKeyword a sh:NodeShape ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel "Syntax Keyword shape"@en ;
+    sh:rule rule:SyntaxKeyword ;
+    sh:target target:SyntaxKeyword .
+
+shp:SyntaxSymbol a sh:NodeShape ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel "Syntax Symbol shape"@en ;
+    sh:rule rule:SyntaxSymbol ;
+    sh:target target:SyntaxSymbol .
+
+ex:args1 a python:Args ;
+    rdf:_1 ex:expressionConstant1 ;
+    python:fragment "Hello world!"^^xsd:string .
+
+ex:call1 a python:ExpressionCall ;
+    rdf:_1 ex:function1 ;
+    rdf:_2 ex:args1 ;
+    python:fragment "print Hello world!"^^xsd:string .
+
+ex:expressionConstant1 a python:ExpressionConstant ;
+    rdf:value "Hello world!" ;
+    python:fragment "Hello world!" .
+
+ex:function1 a python:ExpressionName ;
+    rdf:_1 ex:print1 ;
+    python:fragment "print"^^xsd:string .
+
+ex:print1 a python:SyntaxKeywordPrint ;
+    python:fragment "print"^^xsd:string .
+
+decl:python sh:namespace "https://www.python.org/model/def/"^^xsd:anyURI ;
+    sh:prefix "python" .
+
+decl:rdf sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+    sh:prefix "rdf" .
+
+decl:rdfs sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+    sh:prefix "rdfs" .
+
+decl:xsd sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+    sh:prefix "xsd" .
+
+python:Args a owl:Class ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents args in Python."@en ;
+    skos:prefLabel "Args"@en .
+
+python:ExpressionCall a owl:Class ;
+    dct:conformsTo <http://example.org/section/Call> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a function call in Python."@en ;
+    skos:prefLabel "Function Call"@en .
+
+python:ExpressionConstant a owl:Class ;
+    dct:conformsTo <http://example.org/section/Constant> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:TerminalNode ;
+    skos:definition "Represents a constant value in Python."@en ;
+    skos:prefLabel "Constant"@en .
+
+python:ExpressionName a owl:Class ;
+    dct:conformsTo <http://example.org/section/Name> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a name reference in Python."@en ;
+    skos:prefLabel "Name"@en .
+
+python:Module a owl:Class ;
+    dct:conformsTo <http://example.org/section/Module> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:NonTerminalNode ;
+    skos:definition "Represents a module in Python."@en ;
+    skos:prefLabel "Module"@en .
+
+python:SyntaxKeywordPrint a owl:Class ;
+    dct:conformsTo section:Print ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:SyntaxKeyword ;
+    skos:definition "Represents the print keyword in Python."@en ;
+    skos:prefLabel "print keyword"@en ;
+    python:syntax "print" .
+
+rule:ExpressionConstant a sh:SPARQLRule ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel ""@en ;
+    sh:construct """
+construct {
+
+  # Assert the new python fragment for this python node
+  $this python:fragment ?fragment.
+  
+} where {
+  
+  $this rdf:value ?fragment.
+  
+}""" ;
+    sh:prefixes python: .
+
+rule:NonTerminalNode a sh:SPARQLRule ;
+    rdfs:comment "Create the Python fragment for a non-terminal node in the abstract syntax tree of Python."@en ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel "Python non-terminal node serialization algorithm"@en ;
+    sh:construct """
+construct {
+
+  # Assert the new Python fragment for this Python node
+  $this python:fragment ?fragment.
+  
+} where {
+ 
+  # Get the Python fragments of child nodes, if there are any. Note how each child node fragment is separated by a space.
+  {
+    select $this (group_concat(str(?fragment);separator=' ') as ?fragments) {
+      {
+        select $this ?member ?fragment {
+          $this ?member ?node.
+          filter(strstarts(str(?member),concat(str(rdf:),'_')))
+          ?node python:fragment ?fragment.
+        }
+        order by xsd:integer(strafter(str(?member),concat(str(rdf:),'_')))
+      }
+    } group by $this
+  }
+  # Build the Python fragment for this node, by combining everything retrieved above.
+  bind(strdt(concat(if(?fragments='','',?fragments)),xsd:string) as ?fragment)
+  
+}""" ;
+    sh:prefixes python: .
+
+rule:SyntaxKeyword a sh:SPARQLRule ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel ""@en ;
+    sh:construct """
+construct {
+
+  # Assert the new Python fragment for this Python node
+  $this python:fragment ?fragment.
+  
+} where {
+  
+  $this a ?class.
+  ?class python:syntax ?syntax.
+  
+  # Build the Python fragment for the keyword.
+  bind(strdt(?syntax,xsd:string) as ?fragment)
+  
+}""" ;
+    sh:prefixes python: .
+
+rule:SyntaxSymbol a sh:SPARQLRule ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy python: ;
+    skos:prefLabel ""@en ;
+    sh:construct """
+construct {
+
+  # Assert the new Python fragment for this Python node
+  $this python:fragment ?fragment.
+  
+} where {
+  
+  $this a ?class.
+  ?class python:syntax ?syntax.
+  
+  # Build the Python fragment for the symbol.
+  bind(strdt(?syntax,xsd:string) as ?fragment)
+  
+}""" ;
+    sh:prefixes python: .
+
+target:ExpressionConstant a sh:SPARQLTarget ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy python: ;
+    sh:prefixes python: ;
+    sh:select """
+select $this {
+
+  # Select all character sequence nodes in the python logic...
+  $this a/rdfs:subClassOf* python:ExpressionConstant.
+  
+  # ...that do not yet have a python fragment.
+  filter not exists { $this python:fragment []. }
+  
+}""" .
+
+target:NonTerminalNode a sh:SPARQLTarget ;
+    rdfs:comment "Select non-terminal nodes in a Python Abstract Syntax Tree that do not have a Python fragment yet, and whose child nodes all have a Python fragment already."@en ;
+    rdfs:isDefinedBy python: ;
+    sh:prefixes python: ;
+    sh:select """
+select $this {
+
+  # Select all non-terminal nodes in the Python logic...
+  $this a/rdfs:subClassOf* python:NonTerminalNode.
+  
+  # ...that do not yet have a python fragment.
+  filter not exists { $this python:fragment []. }
+  
+  # ...but whose child nodes all have an Python fragment (both non-terminal child nodes and terminal child nodes)
+  minus {
+    $this ?member ?child.
+    filter not exists { ?child python:fragment []. }
+    ?child a/rdfs:subClassOf* python:Node.
+  }
+}""" .
+
+target:SyntaxKeyword a sh:SPARQLTarget ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy python: ;
+    sh:prefixes python: ;
+    sh:select """
+select $this {
+
+  # Select all keyword nodes in the Python query...
+  $this a/rdfs:subClassOf* python:SyntaxKeyword.
+  
+  # ...that do not yet have a python fragment.
+  filter not exists { $this python:fragment []. }
+  
+}""" .
+
+target:SyntaxSymbol a sh:SPARQLTarget ;
+    rdfs:comment ""@en ;
+    rdfs:isDefinedBy python: ;
+    sh:prefixes python: ;
+    sh:select """
+select $this {
+
+  # Select all symbol nodes in the Python logic...
+  $this a/rdfs:subClassOf* python:SyntaxSymbol.
+  
+  # ...that do not yet have a python fragment.
+  filter not exists { $this python:fragment []. }
+  
+}""" .
+
+python:Node a owl:Class ;
+    dct:conformsTo <http://example.org/section/Node> ;
+    rdfs:isDefinedBy python: ;
+    skos:definition "Represents an object within the Python abstract syntax tree."@en ;
+    skos:prefLabel "Node"@en .
+
+python:TerminalNode a owl:Class ;
+    dct:conformsTo <http://example.org/section/TerminalNode> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:Node ;
+    skos:definition "Represents a syntactical node in the Python abstract syntax tree, i.e. a keyword or symbol."@en ;
+    skos:prefLabel "Terminal node"@en .
+
+python:SyntaxKeyword a owl:Class ;
+    dct:conformsTo section:SyntaxKeyword ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:TerminalNode ;
+    skos:definition "Represents a keyword in the Python syntax."@en ;
+    skos:example "\"Return\", \"If\" and \"List\""@en ;
+    skos:prefLabel "Syntax Keyword"@en .
+
+python:NonTerminalNode a owl:Class ;
+    dct:conformsTo <http://example.org/section/StructuralNode> ;
+    rdfs:isDefinedBy python: ;
+    rdfs:subClassOf python:Node ;
+    skos:definition "Represents a structural node in the Python abstract syntax tree."@en ;
+    skos:prefLabel "Non-terminal node"@en .
+
+python: a void:Dataset,
+        owl:Ontology ;
+    dct:abstract "The Python Vocabulary provides a formal representation of the Python programming language, enabling the modeling and generation of Python code through an abstract syntax tree (AST) framework. It defines classes and properties to describe the various components of Python syntax, including functions, classes, statements, expressions, and data structures. Additionally, it incorporates SHACL shapes for validating Python code structures and supports algorithms for serializing Python code from RDF representations. This vocabulary enhances code generation and manipulation, bridging Python with broader semantic web technologies."@en ;
+    dct:created "2024-09-29"^^xsd:date ;
+    dct:creator "Flores Bakker",
+        "Wouter Beek" ;
+    dct:description """The Python Vocabulary formalizes the Python programming language, offering a structured representation of its syntax and semantics. It defines classes for different Python constructs, such as 'python:StatementFunctionDef' for function definitions, 'python:StatementClassDef' for class definitions, and properties to capture relationships between these components. Central to this vocabulary is the class 'python:Module', which serves as a building block for all types of Python code segments. Each code unit can have attributes, such as 'python:decorator' for decorators on functions or classes and 'python:argument' for defining function parameters. The vocabulary also includes SHACL shapes to validate the correctness of Python code structures, ensuring that generated code adheres to Python syntax rules. These shapes facilitate the creation of well-formed Python code that can be executed reliably. This comprehensive approach allows users to leverage RDF representations to generate Python code, enabling seamless integration of semantic technologies with programming tasks.
+    
+    The Python Core Vocabulary models the Python language based on its Abstract Syntax Tree (AST), as shown below:
+    
+-- ASDL's 4 builtin types are:
+-- identifier, int, string, constant
+
+module Python
+{
+    mod = Module(stmt* body, type_ignore* type_ignores)
+        | Interactive(stmt* body)
+        | Expression(expr body)
+        | FunctionType(expr* argtypes, expr returns)
+
+    stmt = FunctionDef(identifier name, arguments args,
+                       stmt* body, expr* decorator_list, expr? returns,
+                       string? type_comment, type_param* type_params)
+          | AsyncFunctionDef(identifier name, arguments args,
+                             stmt* body, expr* decorator_list, expr? returns,
+                             string? type_comment, type_param* type_params)
+
+          | ClassDef(identifier name,
+             expr* bases,
+             keyword* keywords,
+             stmt* body,
+             expr* decorator_list,
+             type_param* type_params)
+          | Return(expr? value)
+
+          | Delete(expr* targets)
+          | Assign(expr* targets, expr value, string? type_comment)
+          | TypeAlias(expr name, type_param* type_params, expr value)
+          | AugAssign(expr target, operator op, expr value)
+          -- 'simple' indicates that we annotate simple name without parens
+          | AnnAssign(expr target, expr annotation, expr? value, int simple)
+
+          -- use 'orelse' because else is a keyword in target languages
+          | For(expr target, expr iter, stmt* body, stmt* orelse, string? type_comment)
+          | AsyncFor(expr target, expr iter, stmt* body, stmt* orelse, string? type_comment)
+          | While(expr test, stmt* body, stmt* orelse)
+          | If(expr test, stmt* body, stmt* orelse)
+          | With(withitem* items, stmt* body, string? type_comment)
+          | AsyncWith(withitem* items, stmt* body, string? type_comment)
+
+          | Match(expr subject, match_case* cases)
+
+          | Raise(expr? exc, expr? cause)
+          | Try(stmt* body, excepthandler* handlers, stmt* orelse, stmt* finalbody)
+          | TryStar(stmt* body, excepthandler* handlers, stmt* orelse, stmt* finalbody)
+          | Assert(expr test, expr? msg)
+
+          | Import(alias* names)
+          | ImportFrom(identifier? module, alias* names, int? level)
+
+          | Global(identifier* names)
+          | Nonlocal(identifier* names)
+          | Expr(expr value)
+          | Pass | Break | Continue
+
+          -- col_offset is the byte offset in the utf8 string the parser uses
+          attributes (int lineno, int col_offset, int? end_lineno, int? end_col_offset)
+
+          -- BoolOp() can use left & right?
+    expr = BoolOp(boolop op, expr* values)
+         | NamedExpr(expr target, expr value)
+         | BinOp(expr left, operator op, expr right)
+         | UnaryOp(unaryop op, expr operand)
+         | Lambda(arguments args, expr body)
+         | IfExp(expr test, expr body, expr orelse)
+         | Dict(expr* keys, expr* values)
+         | Set(expr* elts)
+         | ListComp(expr elt, comprehension* generators)
+         | SetComp(expr elt, comprehension* generators)
+         | DictComp(expr key, expr value, comprehension* generators)
+         | GeneratorExp(expr elt, comprehension* generators)
+         -- the grammar constrains where yield expressions can occur
+         | Await(expr value)
+         | Yield(expr? value)
+         | YieldFrom(expr value)
+         -- need sequences for compare to distinguish between
+         -- x < 4 < 3 and (x < 4) < 3
+         | Compare(expr left, cmpop* ops, expr* comparators)
+         | Call(expr func, expr* args, keyword* keywords)
+         | FormattedValue(expr value, int conversion, expr? format_spec)
+         | JoinedStr(expr* values)
+         | Constant(constant value, string? kind)
+
+         -- the following expression can appear in assignment context
+         | Attribute(expr value, identifier attr, expr_context ctx)
+         | Subscript(expr value, expr slice, expr_context ctx)
+         | Starred(expr value, expr_context ctx)
+         | Name(identifier id, expr_context ctx)
+         | List(expr* elts, expr_context ctx)
+         | Tuple(expr* elts, expr_context ctx)
+
+         -- can appear only in Subscript
+         | Slice(expr? lower, expr? upper, expr? step)
+
+          -- col_offset is the byte offset in the utf8 string the parser uses
+          attributes (int lineno, int col_offset, int? end_lineno, int? end_col_offset)
+
+    expr_context = Load | Store | Del
+
+    boolop = And | Or
+
+    operator = Add | Sub | Mult | MatMult | Div | Mod | Pow | LShift
+                 | RShift | BitOr | BitXor | BitAnd | FloorDiv
+
+    unaryop = Invert | Not | UAdd | USub
+
+    cmpop = Eq | NotEq | Lt | LtE | Gt | GtE | Is | IsNot | In | NotIn
+
+    comprehension = (expr target, expr iter, expr* ifs, int is_async)
+
+    excepthandler = ExceptHandler(expr? type, identifier? name, stmt* body)
+                    attributes (int lineno, int col_offset, int? end_lineno, int? end_col_offset)
+
+    arguments = (arg* posonlyargs, arg* args, arg? vararg, arg* kwonlyargs,
+                 expr* kw_defaults, arg? kwarg, expr* defaults)
+
+    arg = (identifier arg, expr? annotation, string? type_comment)
+           attributes (int lineno, int col_offset, int? end_lineno, int? end_col_offset)
+
+    -- keyword arguments supplied to call (NULL identifier for **kwargs)
+    keyword = (identifier? arg, expr value)
+               attributes (int lineno, int col_offset, int? end_lineno, int? end_col_offset)
+
+    -- import name with optional 'as' alias.
+    alias = (identifier name, identifier? asname)
+             attributes (int lineno, int col_offset, int? end_lineno, int? end_col_offset)
+
+    withitem = (expr context_expr, expr? optional_vars)
+
+    match_case = (pattern pattern, expr? guard, stmt* body)
+
+    pattern = MatchValue(expr value)
+            | MatchSingleton(constant value)
+            | MatchSequence(pattern* patterns)
+            | MatchMapping(expr* keys, pattern* patterns, identifier? rest)
+            | MatchClass(expr cls, pattern* patterns, identifier* kwd_attrs, pattern* kwd_patterns)
+
+            | MatchStar(identifier? name)
+            -- The optional "rest" MatchMapping parameter handles capturing extra mapping keys
+
+            | MatchAs(pattern? pattern, identifier? name)
+            | MatchOr(pattern* patterns)
+
+             attributes (int lineno, int col_offset, int end_lineno, int end_col_offset)
+
+    type_ignore = TypeIgnore(int lineno, string tag)
+
+    type_param = TypeVar(identifier name, expr? bound)
+               | ParamSpec(identifier name)
+               | TypeVarTuple(identifier name)
+               attributes (int lineno, int col_offset, int end_lineno, int end_col_offset)
+}"""@en ;
+    dct:language "iso639-1:en" ;
+    dct:license "http://creativecommons.org/licenses/by/4.0"^^xsd:anyURI ;
+    dct:publisher <https://rijksfinancien.nl> ;
+    dct:source <https://github.com/floresbakker/pythonvoc> ;
+    dct:status status:UnderDevelopment ;
+    dct:subject "Python"@en ;
+    dct:title "Python Vocabulary"@en ;
+    vann:preferredNamespacePrefix "python" ;
+    vann:preferredNamespaceUri "https://www.python.org/model/def/" ;
+    void:uriRegexPattern "^https://www.python.org/model/def/" ;
+    void:uriSpace "https://www.python.org/model/def/"^^xsd:anyURI ;
+    owl:imports dct:,
+        rdf:,
+        rdfs:,
+        owl:,
+        skos: ;
+    owl:versionInfo "0.1.0" ;
+    skos:example """
+prefix ex: <https://example.org/>
+prefix python: <https://www.python.org/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Root of the AST (Module node)
+ex:module1
+  a python:Module ;
+  rdf:_1 ex:call1 .
+
+# Call node
+ex:Call1
+  a python:ExpressionCall ;
+  rdf:_1 ex:function1 ;
+  rdf:_2 ex:args1 .
+
+# Name node (function name 'print')
+ex:function1
+  a python:ExpressionName ;
+  rdf:_1 ex:print1.
+  
+ex:print1
+  a python:SyntaxKeywordPrint.
+  
+ex:args1
+  a python:Args;
+  rdf:_1 ex:expressionConstant1.
+  
+ex:expressionConstant1
+  a python:ExpressionConstant;
+  rdf:value "Hello world!". 
+"""@en ;
+    sh:declare decl:python,
+        decl:rdf,
+        decl:rdfs,
+        decl:xsd ;
+    foaf:depiction "https://www.rijksfinancien.nl/themes/custom/indicia_theme/files/logo-rijksoverheid.svg"^^xsd:anyURI ;
+    foaf:homepage "https://www.rijksfinancien.nl/"^^xsd:anyURI ;
+    respec:audience "This document is intended for a diverse audience of software developers, data scientists, educators, and anyone involved in Python programming and code management. It aims to support users seeking to enhance their understanding and application of Python within the context of semantic technologies and code generation."@en ;
+    respec:background "The evolving landscape of software development demands tools that facilitate rapid code generation and validation, but safeguard the meaning and intent of the code. Python, with its rich ecosystem and diverse applications, requires robust frameworks to handle its syntax and semantics effectively. The complexity of Python constructs poses challenges for developers, particularly in ensuring compliance with best practices and coding standards, but also in explaining the logic of each program. The Python Vocabulary meets these challenges by offering a formalized structure for representing Python code, making it accessible now and in the future."@en ;
+    respec:introduction "In today’s fast-paced development environment, the need for effective programming practices and tools is essential for managing code complexity. As organizations strive to maintain high-quality codebases, they face challenges related to code generation, validation, and reuse. The Python Vocabulary addresses these challenges by providing a structured framework to model and generate Python code through an abstract syntax tree representation, enhancing the agility, readability and reliability of programming practices."@en ;
+    respec:objective "To tackle the challenges of Python code generation, maintenance, reuse and validation, we present the Python Vocabulary - a transformative framework designed to support users in managing Python programming. This vocabulary enables users to (1) model and represent Python code constructs, (2) generate and validate Python code programmatically, and (3) ensure adherence to Python syntax and best practices. By leveraging the power of RDF and the flexibility of an abstract syntax tree, the Python Vocabulary enhances the efficiency and reliability of code generation in programming environments, fostering better coding practices and facilitating collaboration in software development projects."@en .
+

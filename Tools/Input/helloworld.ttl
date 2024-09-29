@@ -1,0 +1,30 @@
+prefix ex: <https://example.org/>
+prefix python: <https://www.python.org/model/def/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Root of the AST (Module node)
+ex:module1
+  a python:Module ;
+  rdf:_1 ex:call1 .
+
+# Call node
+ex:call1
+  a python:ExpressionCall ;
+  rdf:_1 ex:function1 ;
+  rdf:_2 ex:args1 .
+
+# Name node (function name 'print')
+ex:function1
+  a python:ExpressionName ;
+  rdf:_1 ex:print1.
+  
+ex:print1
+  a python:SyntaxKeywordPrint.
+  
+ex:args1
+  a python:Args;
+  rdf:_1 ex:expressionConstant1.
+  
+ex:expressionConstant1
+  a python:ExpressionConstant;
+  rdf:value "Hello world!". 
