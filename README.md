@@ -60,16 +60,19 @@ ex:call1
 ex:function1
   a python:ExpressionName ;
   rdf:_1 ex:print1.
-  
+
+# Syntax keyword node  
 ex:print1
   a python:SyntaxKeywordPrint.
-  
+
+# Args node  
 ex:args1
   a python:Args;
   rdf:_1 ex:expressionConstant1.
-  
+
+# Expression constant node  
 ex:expressionConstant1
   a python:ExpressionConstant;
-  rdf:value "Hello world!".  
+  rdf:value "Hello world!". 
 ``` 
  

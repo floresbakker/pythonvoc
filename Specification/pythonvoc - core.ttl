@@ -232,7 +232,7 @@ ex:module1
   rdf:_1 ex:call1 .
 
 # Call node
-ex:Call1
+ex:call1
   a python:ExpressionCall ;
   rdf:_1 ex:function1 ;
   rdf:_2 ex:args1 .
@@ -241,14 +241,17 @@ ex:Call1
 ex:function1
   a python:ExpressionName ;
   rdf:_1 ex:print1.
-  
+
+# Syntax keyword node  
 ex:print1
   a python:SyntaxKeywordPrint.
-  
+
+# Args node  
 ex:args1
   a python:Args;
   rdf:_1 ex:expressionConstant1.
-  
+
+# Expression constant node  
 ex:expressionConstant1
   a python:ExpressionConstant;
   rdf:value "Hello world!". 
@@ -1752,6 +1755,67 @@ construct {
 }''';
     rdfs:isDefinedBy python:.      
 
+shp:ExpressionCall
+    a sh:NodeShape;
+    sh:rule rule:ExpressionCall;
+    sh:target target:ExpressionCall;
+    skos:prefLabel 'ExpressionCall shape'@en;
+    rdfs:isDefinedBy python:.    
+
+target:ExpressionCall
+    a sh:SPARQLTarget;
+    rdfs:comment ''@en;
+    sh:prefixes python:;
+    sh:select '''
+select $this {
+
+  # Select all character sequence nodes in the python logic...
+  $this a/rdfs:subClassOf* python:ExpressionCall.
+  
+  # ...that do not yet have a python fragment.
+  filter not exists { $this python:fragment []. }
+  
+  # ...but whose child nodes all have an Python fragment (both non-terminal child nodes and terminal child nodes)
+  minus {
+    $this ?member ?child.
+    filter not exists { ?child python:fragment []. }
+    ?child a/rdfs:subClassOf* python:Node.
+  }
+}''';
+    rdfs:isDefinedBy python:.
+
+rule:ExpressionCall
+    a sh:SPARQLRule;
+    rdfs:comment ''@en;
+    skos:prefLabel ''@en;
+    sh:prefixes python:;
+    sh:construct '''
+construct {
+
+  # Assert the new python fragment for this python node
+  $this python:fragment ?fragment.
+  
+} where {
+  
+  $this rdf:_1 ?func.
+  ?func python:fragment ?funcFragment.
+  
+  OPTIONAL{
+  $this rdf:_2 ?args.
+  ?args python:fragment ?argsFragment.
+  }
+  
+  OPTIONAL{
+  $this rdf:_3 ?keywords.
+  ?keywords python:fragment ?keywordsFragment.
+  }
+  
+  # Build the Python fragment for this node, by combining everything retrieved above.
+  bind(concat(?funcFragment,'(',if(!bound(?argsFragment), '', concat('"',?argsFragment,'"')), if(!bound(?keywordsFragment), '', concat('"',?keywordsFragment,'"')), ')') as ?fragment)
+  
+}''';
+    rdfs:isDefinedBy python:.   
+    
 shp:ExpressionConstant
     a sh:NodeShape;
     sh:rule rule:ExpressionConstant;
